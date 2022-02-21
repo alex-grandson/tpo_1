@@ -1,3 +1,5 @@
+package math;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,7 +7,7 @@ public class CustomMath {
 
     // input in radians
     // to translate into degrees : input [rad] = inputDeg / 180 * Math.PI
-    public static double cos(double rads) {
+    private double cos(double rads) throws ArithmeticException {
         double ans = 1;
         double cur = 1;
         double prev = 0;
@@ -20,12 +22,20 @@ public class CustomMath {
 
         if (ans < -1) return -1;
         if (ans > 1) return 1;
+        if (Double.isInfinite(ans) || Double.isNaN(ans)) {
+            throw new ArithmeticException("Big value");
+        }
         return ans;
     }
 
-    public static Double sec (double rads) {
-        double cosVal = cos(rads);
-//        if (cosVal == 0) return 2.0;
-        return 1 / cos(rads);
+    public Double sec(double rads) throws ArithmeticException{
+        double resultValue = 0.0;
+        try {
+            double cosVal = cos(rads);
+            resultValue =  1 / cos(rads);
+        } catch (ArithmeticException e){
+            e.printStackTrace();
+        }
+        return resultValue;
     }
 }
