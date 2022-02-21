@@ -1,4 +1,4 @@
-package Fanfic;
+package fanfic;
 
 public class Door {
 
@@ -10,10 +10,6 @@ public class Door {
         this.material = material;
         this.durability = durability;
         this.isOpen = isOpen;
-    }
-
-    public DoorMaterial getMaterial() {
-        return material;
     }
 
     public double getDurability() {
@@ -28,12 +24,4 @@ public class Door {
         isOpen = open;
     }
 
-    @Override
-    public String toString() {
-        return "Door{" +
-                "material=" + material +
-                ", durability=" + durability +
-                ", isOpen=" + isOpen +
-                '}';
-    }
 }

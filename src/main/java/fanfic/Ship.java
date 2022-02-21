@@ -1,4 +1,4 @@
-package Fanfic;
+package fanfic;
 
 import java.util.ArrayList;
 
@@ -16,22 +16,6 @@ public class Ship {
         this.cabins = cabins;
 
         System.out.println("Ready... Steady... Go... " + this.toString());
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Coords getCoords() {
-        return coords;
-    }
-
-    public Engine getEngine16V() {
-        return engine16V;
-    }
-
-    public ArrayList<Cabin> getCabins() {
-        return cabins;
     }
 
     @Override

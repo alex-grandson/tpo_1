@@ -1,4 +1,4 @@
-package Fanfic;
+package fanfic;
 
 public class Coords {
     double x;
@@ -9,18 +9,6 @@ public class Coords {
         this.x = x;
         this.y = y;
         this.z = z;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public double getZ() {
-        return z;
     }
 
     @Override

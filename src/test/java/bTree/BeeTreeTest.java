@@ -1,4 +1,5 @@
-import bTree.BeeTree;
+package bTree;
+
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.api.DisplayName;
@@ -12,61 +13,45 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("BeeTree tests")
 public class BeeTreeTest {
     private final int maxKeys = 4;
-    private BeeTree beeTree;
+    private BTree bTree;
 
     @BeforeEach
     public void setup() {
-        beeTree = new BeeTree(maxKeys, true);
+        bTree = new BTree(maxKeys, true);
     }
 
     @ParameterizedTest(name = "Contains array ({0})")
-    @CsvFileSource(resources = "/BeeTree/BeeTree_test_has_keys.csv")
+    @CsvFileSource(resources = "/bTree/BeeTree_test_has_keys.csv")
     void containsTest(String arrayText) {
         int[] array = Arrays.stream(arrayText.replaceAll(" ", "").split(";"))
                 .mapToInt(Integer::parseInt)
                 .toArray();
-        Arrays.stream(array).forEach(beeTree::add);
+        Arrays.stream(array).forEach(bTree::add);
         int size = array.length;
         boolean[] trueArray = new boolean[size];
         Arrays.fill(trueArray, true);
         boolean[] actualArray = new boolean[size];
         for (int i = 0; i < size; i++) {
-            actualArray[i] = beeTree.hasKey(array[i]);
+            actualArray[i] = bTree.hasKey(array[i]);
         }
         assertArrayEquals(trueArray, actualArray);
     }
 
     @ParameterizedTest(name = "Leafs of array ({0})")
-    @CsvFileSource(resources = "/BeeTree/BeeTree_test_leafs.csv")
+    @CsvFileSource(resources = "/bTree/BeeTree_test_leafs.csv")
     void leafTest (String input, String expected) {
         int[] array = Arrays.stream(input.replaceAll(" ", "").split(";"))
                 .mapToInt(Integer::parseInt)
                 .toArray();
-        Arrays.stream(array).forEach(beeTree::add);
-        String actual = beeTree.toLeafString();
+        Arrays.stream(array).forEach(bTree::add);
+        String actual = bTree.toLeafString();
         System.out.printf("expected = %30s | actual = %30s | input = %30s\n",
                 expected, actual, input);
         if (!expected.equals(actual)) {
             System.out.println("History:\n");
-            System.out.println(beeTree.toHistoryString());
+            System.out.println(bTree.toHistoryString());
         }
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest(name = "Keys of array ({0})")
-    @CsvFileSource(resources = "/BeeTree/BeeTree_test_keys.csv")
-    void keysTest (String input, String expected) {
-        int[] array = Arrays.stream(input.replaceAll(" ", "").split(";"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        Arrays.stream(array).forEach(beeTree::add);
-        String actual = beeTree.toNodeString();
-        System.out.printf("expected = %30s | actual = %30s | input = %30s\n",
-                expected, actual, input);
-        if (!expected.equals(actual)) {
-            System.out.println("History:\n");
-            System.out.println(beeTree.toHistoryString());
-        }
-        assertEquals(expected, actual);
-    }
 }

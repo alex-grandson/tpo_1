@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 // пчеловое дерево
-public class BeeTree {
+public class BTree {
     private Node root;
     private final int maxKeys;
     private final boolean saveHistory;
     private List<String> history;
 
-    public BeeTree(int maxKeys) {
+    public BTree(int maxKeys) {
         this(maxKeys, false);
     }
 
-    public BeeTree(int maxKeys, boolean saveHistory) {
+    public BTree(int maxKeys, boolean saveHistory) {
         this.maxKeys = maxKeys;
         this.root = new Node(maxKeys);
         this.saveHistory = saveHistory;

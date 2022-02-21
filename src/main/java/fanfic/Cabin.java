@@ -1,4 +1,4 @@
-package Fanfic;
+package fanfic;
 
 import java.util.ArrayList;
 
@@ -16,52 +16,25 @@ public class Cabin {
         this.cabinNumber = cabinNumber;
     }
 
-    public void rushCabin(int monkeysCount) {
+    public boolean rushCabin(int monkeysCount) {
         System.out.println("Cabin " + this.cabinNumber + " is rushing by " + monkeysCount + " monkey(s)");
         this.monkeys = monkeysCount;
         if (this.monkeys > this.door.getDurability() || this.door.isOpen()) {
             System.out.println("Monkeys rushed cabin");
             this.door.setOpen(true);
+            return true;
         } else {
             System.out.println("Monkeys lost this time");
         }
-    }
-
-    public Door getDoor() {
-        return door;
+        return false;
     }
 
     public ArrayList<Person> getPeople() {
         return people;
     }
 
-    public int getMonkeys() {
-        return monkeys;
-    }
-
     public int getCabinNumber() {
         return cabinNumber;
     }
 
-    public void setPeople(ArrayList<Person> people) {
-        this.people = people;
-    }
-
-    public void setMonkeys(int monkeys) {
-        this.monkeys = monkeys;
-    }
-
-    public void setDoor(Door door) {
-        this.door = door;
-    }
-
-    @Override
-    public String toString() {
-        return "Cabin {" +
-                "cabinNumber=" + cabinNumber +
-                ", door=" + door +
-                ", people=" + people +
-                ", monkeys=" + monkeys +
-                '}';
-    }
 }
