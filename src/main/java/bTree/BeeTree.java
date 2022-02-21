@@ -1,4 +1,4 @@
-package BeeTree;
+package bTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

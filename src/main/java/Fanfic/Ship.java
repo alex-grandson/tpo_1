@@ -14,6 +14,8 @@ public class Ship {
         this.coords = coords;
         this.engine16V = engine16V;
         this.cabins = cabins;
+
+        System.out.println("Ready... Steady... Go... " + this.toString());
     }
 
     public String getName() {

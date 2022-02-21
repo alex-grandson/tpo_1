@@ -1,5 +1,6 @@
 package math;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +29,13 @@ public class CustomMath {
         return ans;
     }
 
-    public Double sec(double rads) throws ArithmeticException{
-        double resultValue = 0.0;
+    public Double sec(double rads) {
+        double resultValue;
         try {
             double cosVal = cos(rads);
-            resultValue =  1 / cos(rads);
-        } catch (ArithmeticException e){
-            e.printStackTrace();
+            resultValue =  1 / cosVal;
+        } catch (ArithmeticException ex){
+            throw ex;
         }
         return resultValue;
     }

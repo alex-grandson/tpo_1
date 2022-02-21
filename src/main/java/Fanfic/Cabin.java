@@ -6,14 +6,25 @@ public class Cabin {
 
     private Door door;
     private ArrayList<Person> people;
-    private ArrayList<Monkey> monkeys;
+    private int monkeys;
     private int cabinNumber;
 
-    public Cabin(Door door, ArrayList<Person> people, ArrayList<Monkey> monkeys, int cabinNumber) {
+    public Cabin(Door door, ArrayList<Person> people, int monkeys, int cabinNumber) {
         this.door = door;
         this.people = people;
         this.monkeys = monkeys;
         this.cabinNumber = cabinNumber;
+    }
+
+    public void rushCabin(int monkeysCount) {
+        System.out.println("Cabin " + this.cabinNumber + " is rushing by " + monkeysCount + " monkey(s)");
+        this.monkeys = monkeysCount;
+        if (this.monkeys > this.door.getDurability() || this.door.isOpen()) {
+            System.out.println("Monkeys rushed cabin");
+            this.door.setOpen(true);
+        } else {
+            System.out.println("Monkeys lost this time");
+        }
     }
 
     public Door getDoor() {
@@ -24,7 +35,7 @@ public class Cabin {
         return people;
     }
 
-    public ArrayList<Monkey> getMonkeys() {
+    public int getMonkeys() {
         return monkeys;
     }
 
@@ -36,7 +47,7 @@ public class Cabin {
         this.people = people;
     }
 
-    public void setMonkeys(ArrayList<Monkey> monkeys) {
+    public void setMonkeys(int monkeys) {
         this.monkeys = monkeys;
     }
 

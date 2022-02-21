@@ -5,6 +5,12 @@ public class Coords {
     double y;
     double z;
 
+    public Coords(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public double getX() {
         return x;
     }
