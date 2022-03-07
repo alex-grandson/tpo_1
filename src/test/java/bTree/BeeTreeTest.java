@@ -48,8 +48,7 @@ public class BeeTreeTest {
         System.out.printf("expected = %30s | actual = %30s | input = %30s\n",
                 expected, actual, input);
         if (!expected.equals(actual)) {
-            System.out.println("History:\n");
-            System.out.println(bTree.toHistoryString());
+            System.out.println("Hist");
         }
         assertEquals(expected, actual);
     }

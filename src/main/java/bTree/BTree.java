@@ -12,9 +12,6 @@ public class BTree {
     private final boolean saveHistory;
     private List<String> history;
 
-    public BTree(int maxKeys) {
-        this(maxKeys, false);
-    }
 
     public BTree(int maxKeys, boolean saveHistory) {
         this.maxKeys = maxKeys;
@@ -108,12 +105,6 @@ public class BTree {
         }
         stringBuilder.append(postfix);
         return stringBuilder.toString();
-    }
-
-    public String toHistoryString() {
-        if (!saveHistory) throw new IllegalStateException("History saving is disabled");
-        if (history.size() == 0) return "";
-        return String.join("\n", history);
     }
 
     public void add(Integer value) {

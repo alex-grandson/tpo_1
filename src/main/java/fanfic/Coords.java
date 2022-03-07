@@ -1,9 +1,9 @@
 package fanfic;
 
 public class Coords {
-    double x;
-    double y;
-    double z;
+    private double x;
+    private double y;
+    private double z;
 
     public Coords(double x, double y, double z) {
         this.x = x;
